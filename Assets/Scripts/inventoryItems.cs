@@ -20,11 +20,6 @@ public class inventoryItems : MonoBehaviour
 
     }
 
-    private void Update()
-    {
-        Debug.Log(itemArray[(int)item.coin]);
-    }
-
     public void GiveItem(int itemID)
     {
         itemArray[itemID] = true;
