@@ -162,7 +162,14 @@ public class PlayerController : MonoBehaviour
                         hit.collider.GetComponent<TriggerInteract>().isInteractedWith = true;
                     }
 
-                    cursorText.text = "Interact with " + hit.collider.transform.parent.name + " (E)";
+                    if (hit.collider.transform.parent.GetComponent<PickupInteract>() != null)
+                        cursorText.text = "Pick up the " + hit.collider.transform.parent.name + " (E)";
+
+                    if (hit.collider.transform.parent.GetComponent<NpcInteract>() != null)
+                        cursorText.text = "Talk to " + hit.collider.transform.parent.name + " (E)";
+
+                    if (hit.collider.transform.parent.GetComponent<SignInteract>() != null)
+                        cursorText.text = "Look at the " + hit.collider.transform.parent.name + " (E)";
                 }
             }
             interactPressed = false;
@@ -334,7 +341,7 @@ public class PlayerController : MonoBehaviour
                 if ((upPressed || downPressed || rightPressed || leftPressed) && isGrounded)
                 {
                     audioTimeDelay = 0.4f;
-                    GetComponent<AudioSource>().volume = 0.42f;
+                    GetComponent<AudioSource>().volume = 0.12f;
                     PlaySound(FootSteps());
                 }
 
@@ -345,7 +352,7 @@ public class PlayerController : MonoBehaviour
                 if ((upPressed || downPressed || rightPressed || leftPressed) && isGrounded)
                 {
                     audioTimeDelay = 0.2f;
-                    GetComponent<AudioSource>().volume = 0.5f;
+                    GetComponent<AudioSource>().volume = 0.17f;
                     PlaySound(FootSteps());
                 }
 
@@ -356,7 +363,7 @@ public class PlayerController : MonoBehaviour
                 if ((upPressed || downPressed || rightPressed || leftPressed) && isGrounded)
                 {
                     audioTimeDelay = 0.7f;
-                    GetComponent<AudioSource>().volume = 0.26f;
+                    GetComponent<AudioSource>().volume = 0.10f;
                     PlaySound(FootSteps());
                 }
 

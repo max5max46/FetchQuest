@@ -18,7 +18,7 @@ public class Win : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (peopleHelped == 5)
+        if (peopleHelped == 5 && Input.GetKeyDown(KeyCode.E))
         {
             winPanel.SetActive(true);
             winText.SetActive(true);
